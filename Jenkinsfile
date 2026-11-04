@@ -1,3 +1,4 @@
+
 pipeline {
     agent any
 
@@ -17,13 +18,13 @@ pipeline {
 
         stage('Deploy Application') {
             steps {
-                bat 'docker compose up -d --build'
+                bat 'docker-compose up -d --build'
             }
         }
 
         stage('Verify Deployment') {
             steps {
-                bat 'docker compose ps'
+                bat 'docker-compose ps'
             }
         }
     }
