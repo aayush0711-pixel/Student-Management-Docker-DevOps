@@ -2,6 +2,13 @@
 pipeline {
     agent any
 
+    environment {
+        MYSQL_USER = 'studentuser'
+        MYSQL_DATABASE = 'studentdb'
+        MYSQL_PASSWORD = credentials('mysql-password')
+        MYSQL_ROOT_PASSWORD = credentials('mysql-root-password')
+    }
+
     stages {
         stage('Checkout') {
             steps {
